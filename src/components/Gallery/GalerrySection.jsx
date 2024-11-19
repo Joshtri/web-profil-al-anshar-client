@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import  { useState } from 'react';
 import Layout from '../../pages/Layout';
 
 const dummyGallery = [
@@ -69,7 +69,10 @@ function GalerrySection() {
 
   return (
     <Layout>
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 my-10">
+      <section className='relative'  id="gallery">
+
+
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 my-10 relative">
         {/* Bungkus seluruh bagian galeri di dalam card */}
         <div className="bg-white border border-gray-200 rounded-lg shadow-lg p-6">
           {/* Header */}
@@ -119,6 +122,7 @@ function GalerrySection() {
           )}
         </div>
       </div>
+      </section>
     </Layout>
   );
 }

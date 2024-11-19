@@ -1,15 +1,33 @@
 import { useState } from 'react';
 import { Navbar } from 'flowbite-react';
-import { Link } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 
 const CustomNavbar = () => {
   const [isOpen, setIsOpen] = useState(false); // Navbar toggle state
   const [openDropdown, setOpenDropdown] = useState(null); // Track which dropdown is open
+  const navigate = useNavigate(); // Navigation hook
+  const location = useLocation(); // Location hook
 
   const toggleNavbar = () => setIsOpen(!isOpen);
 
   const handleDropdownToggle = (dropdown) => {
     setOpenDropdown((prev) => (prev === dropdown ? null : dropdown)); // Open or close dropdowns
+  };
+
+  const handleScrollToSection = (id) => {
+    if (location.pathname !== '/') {
+      // If user is not on HomePage, navigate to HomePage with state
+      navigate('/', { state: { scrollTo: id } });
+    } else {
+      // If user is already on HomePage, scroll directly
+      const targetSection = document.getElementById(id);
+      if (targetSection) {
+        targetSection.scrollIntoView({
+          behavior: 'smooth',
+          block: 'start',
+        });
+      }
+    }
   };
 
   return (
@@ -33,9 +51,10 @@ const CustomNavbar = () => {
         <Navbar.Collapse className={`md:flex ${isOpen ? 'block' : 'hidden'}`}>
           <Link
             to="/"
+            onClick={() => handleScrollToSection('home')}
             className="text-white text-lg px-3 py-2 hover:bg-blue-800 rounded"
           >
-            Home
+            Beranda
           </Link>
 
           {/* Dropdown: About */}
@@ -44,7 +63,7 @@ const CustomNavbar = () => {
               onClick={() => handleDropdownToggle('about')}
               className="text-white text-lg px-3 py-2 hover:bg-blue-800 rounded flex items-center"
             >
-              About
+              Tentang
               <svg
                 className="ml-1 w-5 h-5"
                 fill="none"
@@ -89,7 +108,6 @@ const CustomNavbar = () => {
                   >
                     Sejarah
                   </Link>
-
                   <Link
                     to="/sejarah"
                     className="block px-4 py-2 text-gray-700 hover:bg-gray-100 hover:text-gray-900"
@@ -102,21 +120,21 @@ const CustomNavbar = () => {
             )}
           </div>
 
-          <Link
-            to="/contact"
+          <button
+            onClick={() => handleScrollToSection('contact')}
             className="text-white text-lg px-3 py-2 hover:bg-blue-800 rounded"
           >
             Kontak
-          </Link>
+          </button>
 
-          <Link
-            to="/contact"
+          <button
+            onClick={() => handleScrollToSection('gallery')}
             className="text-white text-lg px-3 py-2 hover:bg-blue-800 rounded"
           >
             Galeri
-          </Link>
+          </button>
 
-          {/* Dropdown: Service */}
+          {/* Dropdown: Other */}
           <div className="relative inline-block text-left">
             <button
               onClick={() => handleDropdownToggle('service')}
@@ -160,21 +178,10 @@ const CustomNavbar = () => {
                   >
                     Artikel
                   </Link>
-                  {/* <Link
-                    to="/toko-online-buku"
-                    className="block px-4 py-2 text-gray-700 hover:bg-gray-100 hover:text-gray-900"
-                    role="menuitem"
-                  >
-                    YaSiPiKan Store
-                  </Link> */}
                 </div>
               </div>
             )}
           </div>
-
-
-
-
         </Navbar.Collapse>
       </Navbar>
     </header>

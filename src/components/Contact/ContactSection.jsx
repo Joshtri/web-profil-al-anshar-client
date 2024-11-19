@@ -4,7 +4,7 @@ import Layout from '../../pages/Layout';
 function ContactSection() {
   return (
     <Layout>
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-10">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-10 relative" id="contact">
         {/* Header */}
         <div className="text-center my-8">
           <h1 className="text-3xl font-bold text-gray-900">Hubungi Kami</h1>
