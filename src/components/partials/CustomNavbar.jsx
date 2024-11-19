@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { Navbar } from 'flowbite-react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
@@ -7,6 +7,7 @@ import './CustomNavbar.css'; // CSS for gradient animation
 const CustomNavbar = () => {
   const [isOpen, setIsOpen] = useState(false); // Navbar toggle state
   const [openDropdown, setOpenDropdown] = useState(null); // Track which dropdown is open
+  const [activeSection, setActiveSection] = useState(''); // Track the active section (home, gallery, contact)
   const navigate = useNavigate(); // Navigation hook
   const location = useLocation(); // Location hook
 
@@ -26,9 +27,44 @@ const CustomNavbar = () => {
           behavior: 'smooth',
           block: 'start',
         });
+        setActiveSection(id); // Set the active section manually when clicked
       }
     }
   };
+
+  const isActiveLink = (path) => {
+    // Helper function to check if the link is active
+    return location.pathname === path;
+  };
+
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const sections = ['home', 'gallery', 'contact']; // IDs of sections to track
+      let currentSection = 'home';
+
+      // Check which section is in view
+      sections.forEach((section) => {
+        const element = document.getElementById(section);
+        if (element) {
+          const rect = element.getBoundingClientRect();
+          if (rect.top <= 150 && rect.bottom >= 150) {
+            currentSection = section;
+          }
+        }
+      });
+
+      setActiveSection(currentSection); // Update the active section
+    };
+
+    if (location.pathname === '/') {
+      window.addEventListener('scroll', handleScroll);
+    }
+
+    return () => {
+      window.removeEventListener('scroll', handleScroll); // Cleanup on component unmount
+    };
+  }, [location.pathname]);
 
   // Bubble animation variants
   const bubbleAnimation = {
@@ -67,10 +103,13 @@ const CustomNavbar = () => {
 
           {/* Navbar Links */}
           <Navbar.Collapse className={`md:flex ${isOpen ? 'block' : 'hidden'}`}>
+            {/* Home Link */}
             <Link
               to="/"
               onClick={() => handleScrollToSection('home')}
-              className="text-white text-lg px-3 py-2 hover:bg-blue-800 rounded"
+              className={`text-lg px-3 py-2 rounded ${
+                activeSection === 'home' ? 'text-yellow-300 font-bold' : 'text-white hover:bg-blue-800'
+              }`}
             >
               Beranda
             </Link>
@@ -79,7 +118,11 @@ const CustomNavbar = () => {
             <div className="relative inline-block text-left">
               <button
                 onClick={() => handleDropdownToggle('about')}
-                className="text-white text-lg px-3 py-2 hover:bg-blue-800 rounded flex items-center"
+                className={`text-lg px-3 py-2 rounded flex items-center ${
+                  openDropdown === 'about' || isActiveLink('/fasilitas-masjid') || isActiveLink('/profil-masjid')
+                    ? 'text-yellow-300 font-bold'
+                    : 'text-white hover:bg-blue-800'
+                }`}
               >
                 Tentang
                 <svg
@@ -109,47 +152,52 @@ const CustomNavbar = () => {
                   >
                     <Link
                       to="/fasilitas-masjid"
-                      className="block px-4 py-2 text-gray-700 hover:bg-gray-100 hover:text-gray-900"
+                      className={`block px-4 py-2 text-gray-700 hover:bg-gray-100 hover:text-gray-900 ${
+                        isActiveLink('/fasilitas-masjid') ? 'bg-gray-100 font-bold' : ''
+                      }`}
                       role="menuitem"
                     >
                       Fasilitas Masjid
                     </Link>
                     <Link
                       to="/profil-masjid"
-                      className="block px-4 py-2 text-gray-700 hover:bg-gray-100 hover:text-gray-900"
+                      className={`block px-4 py-2 text-gray-700 hover:bg-gray-100 hover:text-gray-900 ${
+                        isActiveLink('/profil-masjid') ? 'bg-gray-100 font-bold' : ''
+                      }`}
                       role="menuitem"
                     >
                       Profil Masjid Al-Anshar
                     </Link>
                     <Link
                       to="/sejarah"
-                      className="block px-4 py-2 text-gray-700 hover:bg-gray-100 hover:text-gray-900"
+                      className={`block px-4 py-2 text-gray-700 hover:bg-gray-100 hover:text-gray-900 ${
+                        isActiveLink('/sejarah') ? 'bg-gray-100 font-bold' : ''
+                      }`}
                       role="menuitem"
                     >
                       Sejarah
-                    </Link>
-                    <Link
-                      to="/sejarah"
-                      className="block px-4 py-2 text-gray-700 hover:bg-gray-100 hover:text-gray-900"
-                      role="menuitem"
-                    >
-                      Pengurus
                     </Link>
                   </div>
                 </div>
               )}
             </div>
 
+            {/* Contact Link */}
             <button
               onClick={() => handleScrollToSection('contact')}
-              className="text-white text-lg px-3 py-2 hover:bg-blue-800 rounded"
+              className={`text-lg px-3 py-2 rounded ${
+                activeSection === 'contact' ? 'text-yellow-300 font-bold' : 'text-white hover:bg-blue-800'
+              }`}
             >
               Kontak
             </button>
 
+            {/* Gallery Link */}
             <button
               onClick={() => handleScrollToSection('gallery')}
-              className="text-white text-lg px-3 py-2 hover:bg-blue-800 rounded"
+              className={`text-lg px-3 py-2 rounded ${
+                activeSection === 'gallery' ? 'text-yellow-300 font-bold' : 'text-white hover:bg-blue-800'
+              }`}
             >
               Galeri
             </button>
@@ -158,7 +206,11 @@ const CustomNavbar = () => {
             <div className="relative inline-block text-left">
               <button
                 onClick={() => handleDropdownToggle('service')}
-                className="text-white text-lg px-3 py-2 hover:bg-blue-800 rounded flex items-center"
+                className={`text-lg px-3 py-2 rounded flex items-center ${
+                  openDropdown === 'service' || isActiveLink('/berita') || isActiveLink('/artikel')
+                    ? 'text-yellow-300 font-bold'
+                    : 'text-white hover:bg-blue-800'
+                }`}
               >
                 Other
                 <svg
@@ -188,14 +240,18 @@ const CustomNavbar = () => {
                   >
                     <Link
                       to="/berita"
-                      className="block px-4 py-2 text-gray-700 hover:bg-gray-100 hover:text-gray-900"
+                      className={`block px-4 py-2 text-gray-700 hover:bg-gray-100 hover:text-gray-900 ${
+                        isActiveLink('/berita') ? 'bg-gray-100 font-bold' : ''
+                      }`}
                       role="menuitem"
                     >
                       Berita Terkini
                     </Link>
                     <Link
                       to="/artikel"
-                      className="block px-4 py-2 text-gray-700 hover:bg-gray-100 hover:text-gray-900"
+                      className={`block px-4 py-2 text-gray-700 hover:bg-gray-100 hover:text-gray-900 ${
+                        isActiveLink('/artikel') ? 'bg-gray-100 font-bold' : ''
+                      }`}
                       role="menuitem"
                     >
                       Artikel
