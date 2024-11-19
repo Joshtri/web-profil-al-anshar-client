@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import { useEffect } from 'react'
 import Layout from './Layout'
 import HomeSection from '../components/Home/HomeSection'
 import GaleriSection from '../components/Gallery/GalerrySection'

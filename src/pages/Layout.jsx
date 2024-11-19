@@ -1,11 +1,11 @@
 
-import React from 'react';
-import CustomNavbar from "../components/Partials/CustomNavbar";
-import Footer from "../components/Partials/Footer";
-// import ShareSidebar from "../components/Partials/ShareSidebar";
+// import React from 'react';
+import PropTypes from "prop-types";
+import CustomNavbar from "../components/partials/CustomNavbar";
+import Footer from "../components/partials/Footer";
 
-// Ensure you're accepting the children prop
-// eslint-disable-next-line react/prop-types
+
+
 function Layout({ children }) {
   return (
     <>
@@ -19,4 +19,9 @@ function Layout({ children }) {
   );
 }
 
+Layout.propTypes = {
+  children: PropTypes.node
+}
+
 export default Layout;
+
