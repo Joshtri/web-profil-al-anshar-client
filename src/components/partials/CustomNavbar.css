@@ -1,0 +1,30 @@
+.rotate-180 {
+  transform: rotate(180deg);
+}
+
+.rotate-0 {
+  transform: rotate(0deg);
+}
+
+.transition-transform {
+  transition: transform 0.3s ease-in-out;
+}
+
+
+.bg-animated-gradient {
+  background: linear-gradient(270deg, #1e3a8a, #2563eb, #1e40af);
+  background-size: 600% 600%;
+  animation: gradientAnimation 18s ease infinite;
+}
+
+@keyframes gradientAnimation {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
