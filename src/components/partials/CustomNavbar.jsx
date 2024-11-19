@@ -154,7 +154,7 @@ const CustomNavbar = () => {
                     Berita Terkini
                   </Link>
                   <Link
-                    to="/cek-progress"
+                    to="/artikel"
                     className="block px-4 py-2 text-gray-700 hover:bg-gray-100 hover:text-gray-900"
                     role="menuitem"
                   >

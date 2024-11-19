@@ -42,30 +42,6 @@ function ProfilMasjid() {
           </div>
         </div>
 
-        {/* Visi dan Misi */}
-        <div className="mt-16">
-          <h2 className="text-2xl font-semibold text-gray-800 mb-6 text-center">Visi dan Misi</h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            {/* Visi */}
-            <div className="bg-white border border-gray-200 rounded-lg shadow-lg p-6">
-              <h3 className="text-lg font-bold text-gray-900 mb-2">Visi</h3>
-              <p className="text-gray-700">
-                Menjadi pusat keislaman, pendidikan, dan kegiatan sosial yang berkontribusi
-                pada pembangunan masyarakat yang bertakwa, berilmu, dan beramal.
-              </p>
-            </div>
-            {/* Misi */}
-            <div className="bg-white border border-gray-200 rounded-lg shadow-lg p-6">
-              <h3 className="text-lg font-bold text-gray-900 mb-2">Misi</h3>
-              <ul className="list-disc list-inside text-gray-700">
-                <li>Menyelenggarakan kegiatan ibadah dengan suasana yang khusyuk dan nyaman.</li>
-                <li>Mengadakan pendidikan Al-Qur'an dan keislaman untuk anak-anak hingga dewasa.</li>
-                <li>Melakukan kegiatan sosial untuk membantu masyarakat yang membutuhkan.</li>
-                <li>Menjadi tempat silaturahmi dan dakwah bagi seluruh umat Islam.</li>
-              </ul>
-            </div>
-          </div>
-        </div>
       </div>
     </Layout>
   );

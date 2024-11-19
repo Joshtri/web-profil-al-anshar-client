@@ -10,7 +10,8 @@ import VisiMisiPage from './pages/VisiMisiPage'
 import ProfilMasjid from './components/Profil/ProfilMasjid'
 import BeritaPage from './pages/BeritaPage'
 import FasilitasPage from './pages/FasilitasPage'
-import ArtikelSection from './components/Artikel/ArtikelSection'
+import ArtikelPage from './pages/ArtikelPage'
+// import ArtikelSection from './components/Artikel/ArtikelSection'
 
 function App() {
   // const [count, setCount] = useState(0)
@@ -25,7 +26,7 @@ function App() {
           <Route path='/profil-masjid' element={<ProfilMasjid/>}/>
           <Route path='/berita' element={<BeritaPage/>}/>
           <Route path='/fasilitas-masjid' element={<FasilitasPage/>}/>
-          <Route path='/artikel' element={<ArtikelSection/>}/>
+          <Route path='/artikel' element={<ArtikelPage/>}/>
 
         </Routes>
 
