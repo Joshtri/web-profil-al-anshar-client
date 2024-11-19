@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import Skeleton from 'react-loading-skeleton';
 import 'react-loading-skeleton/dist/skeleton.css';
 import toiletImg from '../../assets/fasilitasImg/toilet.webp'
-
+import parkirImg from '../../assets/fasilitasImg/tempatParkir.webp'
 const FASILITAS = [
   {
     kategori: 'Fasilitas Utama',
@@ -34,7 +34,7 @@ const FASILITAS = [
   {
     kategori: 'Fasilitas Pendukung',
     items: [
-      { name: 'Area Parkir', image: 'https://via.placeholder.com/400x300?text=Area+Parkir' },
+      { name: 'Area Parkir', image: parkirImg },
     ],
   },
 ];
