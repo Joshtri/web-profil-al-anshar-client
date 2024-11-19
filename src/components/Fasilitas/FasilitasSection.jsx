@@ -1,13 +1,14 @@
 import React, { useState } from 'react';
 import Skeleton from 'react-loading-skeleton';
 import 'react-loading-skeleton/dist/skeleton.css';
+import toiletImg from '../../assets/fasilitasImg/toilet.webp'
 
 const FASILITAS = [
   {
     kategori: 'Fasilitas Utama',
     items: [
       { name: 'Tempat Wudhu', image: 'https://via.placeholder.com/400x300?text=Tempat+Wudhu' },
-      { name: 'Toilet', image: 'https://via.placeholder.com/400x300?text=Toilet' },
+      { name: 'Toilet', image: toiletImg },
       { name: 'Rumah Marbot', image: 'https://via.placeholder.com/400x300?text=Rumah+Marbot' },
       { name: 'Gudang Masjid', image: 'https://via.placeholder.com/400x300?text=Gudang+Masjid' },
     ],

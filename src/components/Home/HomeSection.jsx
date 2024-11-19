@@ -1,17 +1,21 @@
 import { Link } from "react-router-dom";
 import { useState, useEffect } from "react";
 
-import img1 from '../../assets/homeImg/black.jpg';
-import img2 from '../../assets/homeImg/black.jpg';
-import img3 from '../../assets/homeImg/black.jpg';
-import img4 from '../../assets/homeImg/black.jpg';
+// import img1 from '../../assets/homeImg/black.jpg';
+// import img2 from '../../assets/homeImg/black.jpg';
+// import img3 from '../../assets/homeImg/black.jpg';
+// import img4 from '../../assets/homeImg/black.jpg';
 
+import childImg from '../../assets/homeImg/childImg.webp';
+import frontImg from '../../assets/homeImg/frontImg.webp';
+import outsideImg from '../../assets/homeImg/outsideImg.webp';
+import insideImg from '../../assets/homeImg/insideImg.webp';
 // Array of background images
 const backgroundImages = [
-  `url(${img1})`,
-  `url(${img2})`,
-  `url(${img3})`,
-  `url(${img4})`,
+  `url(${frontImg})`,
+  `url(${insideImg})`,
+  `url(${outsideImg})`,
+  `url(${childImg})`,
 ];
 
 function HomeSection() {
@@ -65,7 +69,7 @@ function HomeSection() {
             to="/informasi-sholat"
             className="text-white bg-green-700 hover:bg-green-800 focus:ring-4 focus:ring-green-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-green-600 dark:hover:bg-green-700 focus:outline-none dark:focus:ring-green-800"
           >
-            Jadwal Sholat
+            Pengumuman
           </Link>
         </div>
       </div>
