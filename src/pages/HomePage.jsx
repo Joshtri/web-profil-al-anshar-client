@@ -2,7 +2,7 @@ import { useEffect } from 'react'
 import Layout from './Layout'
 import HomeSection from '../components/Home/HomeSection'
 import GaleriSection from '../components/Gallery/GalerrySection'
-import ContactSection from '../components/Contact/ContactSection'
+// import ContactSection from '../components/Contact/ContactSection'
 import { useLocation } from 'react-router-dom'
 import PengumumanSection from '../components/Pengumuman/PengumumanSection'
 
@@ -25,7 +25,7 @@ function HomePage() {
         <HomeSection/>
         <PengumumanSection/>
         <GaleriSection/>
-        <ContactSection/>
+        {/* <ContactSection/> */}
     </Layout>
   )
 }
