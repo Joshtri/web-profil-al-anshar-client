@@ -202,24 +202,24 @@ const CustomNavbar = () => {
             </div>
 
             {/* Contact Link */}
-            <button
+            <Link
               onClick={() => handleScrollToSection('contact')}
               className={`text-lg px-3 py-2 rounded ${
                 activeSection === 'contact' ? 'text-yellow-300 font-bold' : 'text-white hover:bg-blue-800'
               }`}
             >
               Kontak
-            </button>
+            </Link>
 
             {/* Gallery Link */}
-            <button
+            <Link
               onClick={() => handleScrollToSection('gallery')}
               className={`text-lg px-3 py-2 rounded ${
                 activeSection === 'gallery' ? 'text-yellow-300 font-bold' : 'text-white hover:bg-blue-800'
               }`}
             >
               Galeri
-            </button>
+            </Link>
 
             {/* Dropdown: Other */}
             <div className="relative inline-block text-left">
