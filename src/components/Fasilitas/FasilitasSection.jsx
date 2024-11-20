@@ -6,34 +6,42 @@ import parkirImg from '../../assets/fasilitasImg/tempatParkir.webp'
 import lemariSendalImg from '../../assets/fasilitasImg/lemariSepatu.webp';
 
 import mukenahImg from '../../assets/fasilitasImg/mukenah.webp';
-
+import acImg from '../../assets/fasilitasImg/ac.webp';
+import mandiJenazahImg from '../../assets/fasilitasImg/mandijenazah.webp';
+import wudhuImg from '../../assets/fasilitasImg/mandiwudhu.webp';
+import sdImg from '../../assets/fasilitasImg/SD.webp'
 const FASILITAS = [
   {
     kategori: 'Fasilitas Utama',
     items: [
 
-      { name: 'Tempat Wudhu', image: 'https://via.placeholder.com/400x300?text=Tempat+Wudhu' },
+      { name: 'Tempat Wudhu', image:wudhuImg  },
       { name: 'Toilet', image: toiletImg },
       //tunggu ortng foto
       { name: 'Rumah Marbot', image: 'https://via.placeholder.com/400x300?text=Rumah+Marbot' },
+         //tunggu ortng foto
       { name: 'Gudang Masjid', image: 'https://via.placeholder.com/400x300?text=Gudang+Masjid' },
-      { name: 'Pemandian Jenazah', image: 'https://via.placeholder.com/400x300?text=Gudang+Masjid' },
+      { name: 'Pemandian Jenazah', image: mandiJenazahImg },
     ],
   },
-  {
-    kategori: 'Perlengkapan Masjid',
-    items: [
 
-      { name: 'AC', image: 'https://via.placeholder.com/400x300?text=AC' },
+  {
+    kategori: 'Fasilitas Pendidikan',
+    items: [
+      { name: 'SD-Yayasan Al Anshar An-Nur', image: sdImg },
     ],
   },
+
   {
-    kategori: 'Perlengkapan Ibadah',
+    kategori: 'Perlengkapan Ibadah & Masjid',
     items: [
+        //tunggu ortng foto
       { name: 'Informasi Al-Qur\'an', image: 'https://via.placeholder.com/400x300?text=Informasi+Al-Quran' },
+         //tunggu ortng foto
       { name: 'Kotak Amal', image: 'https://via.placeholder.com/400x300?text=Kotak+Amal' },
       { name: 'Tempat Sandal', image: lemariSendalImg },
       { name: 'Lemari Mukenah', image: mukenahImg },
+      { name: 'AC', image: acImg },
     ],
   },
   {
