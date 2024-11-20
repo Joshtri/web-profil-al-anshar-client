@@ -40,7 +40,7 @@ const CustomNavbar = () => {
 
   useEffect(() => {
     const handleScroll = () => {
-      const sections = ['home', 'gallery', 'contact']; // IDs of sections to track
+      const sections = ['home', 'gallery', 'contact', 'pengumuman']; // IDs of sections to track
       let currentSection = 'home';
 
       // Check which section is in view
@@ -276,14 +276,16 @@ const CustomNavbar = () => {
                       Artikel
                     </Link>
                     <Link
-                      to="/pengumuman"
+                      to="#pengumuman"
+                      onClick={() => handleScrollToSection('pengumuman')}
                       className={`block px-4 py-2 text-gray-700 hover:bg-gray-100 hover:text-gray-900 ${
-                        isActiveLink('/artikel') ? 'bg-gray-100 font-bold' : ''
+                        activeSection === 'pengumuman' ? 'bg-gray-100 font-bold' : ''
                       }`}
                       role="menuitem"
                     >
                       Pengumuman
                     </Link>
+
                   </div>
                 </div>
               )}
