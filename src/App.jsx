@@ -11,6 +11,7 @@ import ProfilMasjid from './components/Profil/ProfilMasjid'
 import BeritaPage from './pages/BeritaPage'
 import FasilitasPage from './pages/FasilitasPage'
 import ArtikelPage from './pages/ArtikelPage'
+import PengurusPage from './pages/PengurusPage'
 // import ArtikelSection from './components/Artikel/ArtikelSection'
 
 function App() {
@@ -27,9 +28,8 @@ function App() {
           <Route path='/berita' element={<BeritaPage/>}/>
           <Route path='/fasilitas-masjid' element={<FasilitasPage/>}/>
           <Route path='/artikel' element={<ArtikelPage/>}/>
-
+          <Route path='/pengurus' element={<PengurusPage/>}/>
         </Routes>
-
       </BrowserRouter>
     </>
   )

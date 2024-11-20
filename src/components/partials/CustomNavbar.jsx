@@ -186,6 +186,16 @@ const CustomNavbar = () => {
                     >
                       Sejarah
                     </Link>
+
+                    <Link
+                      to="/pengurus"
+                      className={`block px-4 py-2 text-gray-700 hover:bg-gray-100 hover:text-gray-900 ${
+                        isActiveLink('/fasilitas-masjid') ? 'bg-gray-100 font-bold' : ''
+                      }`}
+                      role="menuitem"
+                    >
+                      Pengurus
+                    </Link>
                   </div>
                 </div>
               )}

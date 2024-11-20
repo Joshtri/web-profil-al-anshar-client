@@ -4,6 +4,7 @@ import HomeSection from '../components/Home/HomeSection'
 import GaleriSection from '../components/Gallery/GalerrySection'
 import ContactSection from '../components/Contact/ContactSection'
 import { useLocation } from 'react-router-dom'
+import PengumumanSection from '../components/Pengumuman/PengumumanSection'
 
 function HomePage() {
   const location = useLocation();
@@ -22,6 +23,7 @@ function HomePage() {
   return (
     <Layout>
         <HomeSection/>
+        <PengumumanSection/>
         <GaleriSection/>
         <ContactSection/>
     </Layout>
