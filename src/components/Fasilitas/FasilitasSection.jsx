@@ -3,23 +3,28 @@ import Skeleton from 'react-loading-skeleton';
 import 'react-loading-skeleton/dist/skeleton.css';
 import toiletImg from '../../assets/fasilitasImg/toilet.webp'
 import parkirImg from '../../assets/fasilitasImg/tempatParkir.webp'
+import lemariSendalImg from '../../assets/fasilitasImg/lemariSepatu.webp';
+
+import mukenahImg from '../../assets/fasilitasImg/mukenah.webp';
+
 const FASILITAS = [
   {
     kategori: 'Fasilitas Utama',
     items: [
+
       { name: 'Tempat Wudhu', image: 'https://via.placeholder.com/400x300?text=Tempat+Wudhu' },
       { name: 'Toilet', image: toiletImg },
+      //tunggu ortng foto
       { name: 'Rumah Marbot', image: 'https://via.placeholder.com/400x300?text=Rumah+Marbot' },
       { name: 'Gudang Masjid', image: 'https://via.placeholder.com/400x300?text=Gudang+Masjid' },
+      { name: 'Pemandian Jenazah', image: 'https://via.placeholder.com/400x300?text=Gudang+Masjid' },
     ],
   },
   {
     kategori: 'Perlengkapan Masjid',
     items: [
-      { name: 'Sound System', image: 'https://via.placeholder.com/400x300?text=Sound+System' },
+
       { name: 'AC', image: 'https://via.placeholder.com/400x300?text=AC' },
-      { name: 'Kipas Angin', image: 'https://via.placeholder.com/400x300?text=Kipas+Angin' },
-      { name: 'Papan Tulis', image: 'https://via.placeholder.com/400x300?text=Papan+Tulis' },
     ],
   },
   {
@@ -27,8 +32,8 @@ const FASILITAS = [
     items: [
       { name: 'Informasi Al-Qur\'an', image: 'https://via.placeholder.com/400x300?text=Informasi+Al-Quran' },
       { name: 'Kotak Amal', image: 'https://via.placeholder.com/400x300?text=Kotak+Amal' },
-      { name: 'Tempat Sandal', image: 'https://via.placeholder.com/400x300?text=Tempat+Sandal' },
-      { name: 'Lemari Mukenah', image: 'https://via.placeholder.com/400x300?text=Lemari+Mukenah' },
+      { name: 'Tempat Sandal', image: lemariSendalImg },
+      { name: 'Lemari Mukenah', image: mukenahImg },
     ],
   },
   {
