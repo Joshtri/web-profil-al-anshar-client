@@ -14,7 +14,7 @@ function Layout({ children }) {
         {/* <ShareSidebar /> */}
         {children} {/* Ensure this is rendering */}
       </div>
-      {/* <Footer /> */}
+      <Footer />
     </>
   );
 }

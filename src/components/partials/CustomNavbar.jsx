@@ -160,6 +160,15 @@ const CustomNavbar = () => {
                       Fasilitas Masjid
                     </Link>
                     <Link
+                      to="/fasilitas-masjid"
+                      className={`block px-4 py-2 text-gray-700 hover:bg-gray-100 hover:text-gray-900 ${
+                        isActiveLink('/fasilitas-masjid') ? 'bg-gray-100 font-bold' : ''
+                      }`}
+                      role="menuitem"
+                    >
+                      Kegiatan Masjid
+                    </Link>
+                    <Link
                       to="/profil-masjid"
                       className={`block px-4 py-2 text-gray-700 hover:bg-gray-100 hover:text-gray-900 ${
                         isActiveLink('/profil-masjid') ? 'bg-gray-100 font-bold' : ''
@@ -255,6 +264,15 @@ const CustomNavbar = () => {
                       role="menuitem"
                     >
                       Artikel
+                    </Link>
+                    <Link
+                      to="/pengumuman"
+                      className={`block px-4 py-2 text-gray-700 hover:bg-gray-100 hover:text-gray-900 ${
+                        isActiveLink('/artikel') ? 'bg-gray-100 font-bold' : ''
+                      }`}
+                      role="menuitem"
+                    >
+                      Pengumuman
                     </Link>
                   </div>
                 </div>

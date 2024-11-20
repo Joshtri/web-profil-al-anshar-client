@@ -1,15 +1,13 @@
 import { Link } from "react-router-dom";
 import { useState, useEffect } from "react";
+import { motion } from "framer-motion";
 
-// import img1 from '../../assets/homeImg/black.jpg';
-// import img2 from '../../assets/homeImg/black.jpg';
-// import img3 from '../../assets/homeImg/black.jpg';
-// import img4 from '../../assets/homeImg/black.jpg';
+// Import images
+import childImg from "../../assets/homeImg/childImg.webp";
+import frontImg from "../../assets/homeImg/frontImg.webp";
+import outsideImg from "../../assets/homeImg/outsideImg.webp";
+import insideImg from "../../assets/homeImg/insideImg.webp";
 
-import childImg from '../../assets/homeImg/childImg.webp';
-import frontImg from '../../assets/homeImg/frontImg.webp';
-import outsideImg from '../../assets/homeImg/outsideImg.webp';
-import insideImg from '../../assets/homeImg/insideImg.webp';
 // Array of background images
 const backgroundImages = [
   `url(${frontImg})`,
@@ -29,6 +27,21 @@ function HomeSection() {
     return () => clearInterval(interval); // Cleanup interval on component unmount
   }, []);
 
+  // Framer Motion variants for animation
+  const textAnimation = {
+    hidden: { opacity: 0, y: 50 }, // Initial state: invisible and below
+    visible: { opacity: 1, y: 0, transition: { duration: 1, ease: "easeInOut" } }, // Final state: visible and at original position
+  };
+
+  const buttonAnimation = {
+    hidden: { opacity: 0, scale: 0.8 },
+    visible: {
+      opacity: 1,
+      scale: 1,
+      transition: { delay: 0.5, duration: 0.8, ease: "easeInOut" },
+    },
+  };
+
   return (
     <section
       id="home"
@@ -47,30 +60,54 @@ function HomeSection() {
       <div className="relative max-w-6xl mx-auto justify-center px-4 sm:px-6 lg:px-8 pb-16 pt-12">
         {/* Introduction */}
         <div className="text-center mb-10 mt-3">
-          <h1 className="text-3xl font-bold mb-4">Masjid Al-Anshar</h1>
-          <p className="text-xl p-3">
+          <motion.h1
+            className="text-3xl font-bold mb-4"
+            initial={{ opacity: 0, y: -30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 1, ease: "easeInOut" }}
+          >
+            Masjid Al-Anshar
+          </motion.h1>
+          <motion.p
+            className="text-xl p-3"
+            variants={textAnimation}
+            initial="hidden"
+            animate="visible"
+          >
             Selamat datang di website resmi Masjid Al-Anshar. Kami hadir untuk
             memberikan informasi tentang kegiatan ibadah, program sosial, jadwal sholat, 
             serta kegiatan keagamaan lainnya. Masjid Al-Anshar berkomitmen untuk menjadi pusat
             keislaman yang bermanfaat bagi masyarakat, menciptakan suasana religius, dan
             mempererat ukhuwah Islamiyah.
-          </p>
+          </motion.p>
         </div>
 
         {/* Call to Action */}
         <div className="flex justify-center mt-8">
-          <Link
-            to="/jadwal-kegiatan"
-            className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800"
+          <motion.div
+            variants={buttonAnimation}
+            initial="hidden"
+            animate="visible"
           >
-            Lihat Galeri
-          </Link>
-          <Link
-            to="/informasi-sholat"
-            className="text-white bg-green-700 hover:bg-green-800 focus:ring-4 focus:ring-green-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-green-600 dark:hover:bg-green-700 focus:outline-none dark:focus:ring-green-800"
+            <Link
+              to="/jadwal-kegiatan"
+              className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800"
+            >
+              Lihat Galeri
+            </Link>
+          </motion.div>
+          <motion.div
+            variants={buttonAnimation}
+            initial="hidden"
+            animate="visible"
           >
-            Pengumuman
-          </Link>
+            <Link
+              to="/informasi-sholat"
+              className="text-white bg-green-700 hover:bg-green-800 focus:ring-4 focus:ring-green-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-green-600 dark:hover:bg-green-700 focus:outline-none dark:focus:ring-green-800"
+            >
+              Pengumuman
+            </Link>
+          </motion.div>
         </div>
       </div>
     </section>
