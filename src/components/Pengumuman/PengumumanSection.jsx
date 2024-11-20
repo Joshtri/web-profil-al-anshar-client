@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { motion } from 'framer-motion';
 import { FaBullhorn, FaCalendarAlt } from 'react-icons/fa';
 import { AiOutlineClockCircle } from 'react-icons/ai';
@@ -28,14 +28,8 @@ const DUMMY_ANNOUNCEMENTS = [
 ];
 
 function PengumumanSection() {
-  const [expanded, setExpanded] = useState(null);
-
-  const toggleExpand = (id) => {
-    setExpanded((prev) => (prev === id ? null : id));
-  };
-
   return (
-    <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 my-10" id='pengumuman'>
+    <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 my-10" id="pengumuman">
       {/* Header */}
       <div className="text-center mb-10">
         <h1 className="text-4xl font-bold text-gray-900">Pengumuman</h1>
@@ -54,18 +48,13 @@ function PengumumanSection() {
             transition={{ duration: 0.3 }}
           >
             {/* Card Header */}
-            <div className="bg-blue-600 text-white p-4 flex items-center justify-between cursor-pointer" onClick={() => toggleExpand(announcement.id)}>
+            <div className="bg-blue-600 text-white p-4 flex items-center justify-between">
               <h2 className="text-lg font-bold">{announcement.title}</h2>
               <FaBullhorn className="text-2xl" />
             </div>
 
             {/* Card Body */}
-            <motion.div
-              className={`p-4 transition-all duration-500 ${expanded === announcement.id ? 'block' : 'hidden'}`}
-              initial={{ opacity: 0, height: 0 }}
-              animate={expanded === announcement.id ? { opacity: 1, height: 'auto' } : { opacity: 0, height: 0 }}
-              transition={{ duration: 0.5 }}
-            >
+            <div className="p-4">
               <p className="flex items-center text-gray-600 dark:text-gray-300 mb-2">
                 <FaCalendarAlt className="mr-2 text-blue-500" /> {announcement.date}
               </p>
@@ -73,7 +62,7 @@ function PengumumanSection() {
                 <AiOutlineClockCircle className="mr-2 text-blue-500" /> {announcement.time}
               </p>
               <p className="text-gray-700 dark:text-gray-400">{announcement.description}</p>
-            </motion.div>
+            </div>
           </motion.div>
         ))}
       </div>
@@ -81,4 +70,4 @@ function PengumumanSection() {
   );
 }
 
-export default PengumumanSection;
+export default PengumumanSection
