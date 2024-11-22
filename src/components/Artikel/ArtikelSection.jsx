@@ -1,41 +1,53 @@
-import { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import axios from 'axios';
 import { FaShareAlt, FaBookOpen } from 'react-icons/fa';
 import { useNavigate } from 'react-router-dom';
 
-// Data Dummy Artikel
-const DUMMY_ARTICLES = [
-  {
-    _id: '1',
-    judul: 'Pentingnya Menjaga Kesehatan Mental',
-    coverImageUrl: 'https://placehold.co/400x300',
-    createdAt: '2024-11-01',
-    penulisId: { firstName: 'Ahmad', lastName: 'Fauzi' },
-  },
-  {
-    _id: '2',
-    judul: 'Pengaruh Teknologi dalam Pendidikan',
-    coverImageUrl: 'https://placehold.co/400x300',
-    createdAt: '2024-11-05',
-    penulisId: { firstName: 'Siti', lastName: 'Aisyah' },
-  },
-  {
-    _id: '3',
-    judul: 'Tips Mengelola Waktu untuk Ibu Rumah Tangga',
-    coverImageUrl: 'https://placehold.co/400x300',
-    createdAt: '2024-11-10',
-    penulisId: { firstName: 'Rahma', lastName: 'Putri' },
-  },
-];
-
 function ArtikelSection() {
-  const [posts] = useState(DUMMY_ARTICLES); // Gunakan data dummy
+  const [posts, setPosts] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
   const navigate = useNavigate();
+
+  // Fetch articles from API
+  useEffect(() => {
+    const fetchArticles = async () => {
+      try {
+        const response = await axios.get(`${import.meta.env.VITE_BASE_URL}/api/v1/article`);
+        console.log('Articles fetched:', response.data); // Debugging
+        setPosts(response.data.data);
+        setLoading(false);
+      } catch (err) {
+        console.error('Error fetching articles:', err);
+        setError(err.message);
+        setLoading(false);
+      }
+    };
+
+    fetchArticles();
+  }, []);
 
   const handleShare = (title) => {
     const shareUrl = window.location.href;
     navigator.clipboard.writeText(`${title} - ${shareUrl}`);
     alert('Link artikel berhasil disalin!');
   };
+
+  if (loading) {
+    return (
+      <div className="flex justify-center items-center h-64">
+        <p className="text-gray-500">Memuat artikel...</p>
+      </div>
+    );
+  }
+
+  if (error) {
+    return (
+      <div className="flex justify-center items-center h-64">
+        <p className="text-red-500">Terjadi kesalahan: {error}</p>
+      </div>
+    );
+  }
 
   return (
     <div className="container mx-auto px-4 py-8 bg-slate-100">

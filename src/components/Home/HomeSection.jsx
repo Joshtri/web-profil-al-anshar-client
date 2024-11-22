@@ -18,6 +18,7 @@ const backgroundImages = [
 
 function HomeSection() {
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
+  const [activeSection, setActiveSection] = useState(''); // Track the active section (home, gallery, contact)
 
   // Change background image every 5 seconds
   useEffect(() => {
@@ -41,6 +42,22 @@ function HomeSection() {
       transition: { delay: 0.5, duration: 0.8, ease: "easeInOut" },
     },
   };
+
+  const handleScrollToSection = (id) => {
+    if (location.pathname !== '/') {
+      navigate('/', { state: { scrollTo: id } }); // Navigate to HomePage if not on it
+    } else {
+      const targetSection = document.getElementById(id); // Scroll directly if already on HomePage
+      if (targetSection) {
+        targetSection.scrollIntoView({
+          behavior: 'smooth',
+          block: 'start',
+        });
+        setActiveSection(id); // Set the active section manually when clicked
+      }
+    }
+  };
+
 
   return (
     <section
@@ -102,8 +119,9 @@ function HomeSection() {
             animate="visible"
           >
             <Link
-              to="/informasi-sholat"
+              
               className="text-white bg-green-700 hover:bg-green-800 focus:ring-4 focus:ring-green-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-green-600 dark:hover:bg-green-700 focus:outline-none dark:focus:ring-green-800"
+              
             >
               Pengumuman
             </Link>
