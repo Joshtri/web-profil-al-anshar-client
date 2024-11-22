@@ -30,24 +30,24 @@ Selamat datang di dokumentasi proyek **Website Profil Masjid Al-Anshar**! Proyek
 Proyek ini dibangun dengan berbagai teknologi modern untuk memastikan performa, keamanan, dan pengalaman pengguna yang optimal.
 
 ### **Frontend**
-- **React JS**: Library untuk membangun antarmuka pengguna yang interaktif dan cepat.
-- **Vite**: Build tool yang sangat cepat dan ringan untuk pengembangan React.
-- **Tailwind CSS**: Framework CSS yang memberikan kemudahan dalam mendesain layout responsif.
-- **Flowbite & Flowbite React**: Komponen UI yang modern dan siap digunakan untuk meningkatkan efisiensi pengembangan.
-- **Framer Motion**: Untuk animasi transisi halaman dan elemen interaktif.
-- **React Router DOM**: Untuk navigasi halaman berbasis SPA (Single Page Application).
+![React](https://img.shields.io/badge/React-%2320232a.svg?style=for-the-badge&logo=react&logoColor=%2361DAFB)
+![Vite](https://img.shields.io/badge/Vite-%23646CFF.svg?style=for-the-badge&logo=vite&logoColor=white)
+![TailwindCSS](https://img.shields.io/badge/TailwindCSS-%2338B2AC.svg?style=for-the-badge&logo=tailwind-css&logoColor=white)
+![Flowbite](https://img.shields.io/badge/Flowbite-%2303C8A8.svg?style=for-the-badge&logo=flowbite&logoColor=white)
+![Framer Motion](https://img.shields.io/badge/Framer%20Motion-%23000000.svg?style=for-the-badge&logo=framer&logoColor=white)
+![React Router](https://img.shields.io/badge/React%20Router-%23CA4245.svg?style=for-the-badge&logo=react-router&logoColor=white)
 
 ### **Backend**
-- **Axios**: Library untuk komunikasi API yang cepat dan aman.
-- **RSS Parser**: Untuk membaca dan menampilkan feed berita dari sumber eksternal.
+![Axios](https://img.shields.io/badge/Axios-%235A29E4.svg?style=for-the-badge&logo=axios&logoColor=white)
+![RSS Parser](https://img.shields.io/badge/RSS%20Parser-%230063C4.svg?style=for-the-badge&logo=rss&logoColor=white)
 
 ### **Utility**
-- **Moment.js**: Mengatur dan menampilkan waktu dalam format yang ramah pengguna.
-- **React Icons**: Ikon modern untuk meningkatkan tampilan dan kesan profesional.
+![Moment.js](https://img.shields.io/badge/Moment.js-%2300A1D6.svg?style=for-the-badge&logo=javascript&logoColor=white)
+![React Icons](https://img.shields.io/badge/React%20Icons-%2320232A.svg?style=for-the-badge&logo=react&logoColor=%2361DAFB)
 
 ### **Linting dan Build Tools**
-- **ESLint**: Untuk memastikan kualitas kode yang konsisten dan bebas dari error.
-- **Tailwind Autoprefixer**: Menambahkan vendor prefix ke CSS untuk kompatibilitas lintas browser.
+![ESLint](https://img.shields.io/badge/ESLint-%234B32C3.svg?style=for-the-badge&logo=eslint&logoColor=white)
+![Tailwind Autoprefixer](https://img.shields.io/badge/Tailwind%20Autoprefixer-%2338B2AC.svg?style=for-the-badge&logo=tailwind-css&logoColor=white)
 
 ---
 
