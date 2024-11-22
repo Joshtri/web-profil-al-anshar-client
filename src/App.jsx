@@ -10,9 +10,10 @@ import VisiMisiPage from './pages/VisiMisiPage'
 import ProfilMasjid from './components/Profil/ProfilMasjid'
 import BeritaPage from './pages/BeritaPage'
 import FasilitasPage from './pages/FasilitasPage'
-import ArtikelPage from './pages/ArtikelPage'
+import ArtikelPage from './pages/Article/ArtikelPage'
 import PengurusPage from './pages/PengurusPage'
 import KegiatanPage from './pages/KegiatanPage'
+import ReadArticlePage from './pages/Article/ReadArticlePage'
 // import ArtikelSection from './components/Artikel/ArtikelSection'
 
 function App() {
@@ -31,6 +32,8 @@ function App() {
           <Route path='/artikel' element={<ArtikelPage/>}/>
           <Route path='/pengurus' element={<PengurusPage/>}/>
           <Route path='/kegiatan' element={<KegiatanPage/>}/>
+          <Route path="/artikel/:id" element={<ReadArticlePage />} />
+
         </Routes>
       </BrowserRouter>
     </>

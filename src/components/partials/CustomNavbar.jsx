@@ -7,7 +7,7 @@ import './CustomNavbar.css'; // CSS for gradient animation
 const CustomNavbar = () => {
   const [isOpen, setIsOpen] = useState(false); // Navbar toggle state
   const [openDropdown, setOpenDropdown] = useState(null); // Track which dropdown is open
-  const [activeSection, setActiveSection] = useState(''); // Track the active section (home, gallery, contact)
+  const [activeSection, setActiveSection] = useState('home'); // Track the active section (home, gallery, contact)
   const navigate = useNavigate(); // Navigation hook
   const location = useLocation(); // Location hook
 
@@ -36,7 +36,6 @@ const CustomNavbar = () => {
     // Helper function to check if the link is active
     return location.pathname === path;
   };
-
 
   useEffect(() => {
     const handleScroll = () => {
@@ -114,12 +113,17 @@ const CustomNavbar = () => {
               Beranda
             </Link>
 
-            {/* Dropdown: About */}
+            {/* Dropdown: Tentang */}
             <div className="relative inline-block text-left">
               <button
                 onClick={() => handleDropdownToggle('about')}
                 className={`text-lg px-3 py-2 rounded flex items-center ${
-                  openDropdown === 'about' || isActiveLink('/fasilitas-masjid') || isActiveLink('/profil-masjid')
+                  openDropdown === 'about' ||
+                  isActiveLink('/fasilitas-masjid') ||
+                  isActiveLink('/profil-masjid') ||
+                  isActiveLink('/kegiatan-masjid') ||
+                  isActiveLink('/sejarah') ||
+                  isActiveLink('/pengurus')
                     ? 'text-yellow-300 font-bold'
                     : 'text-white hover:bg-blue-800'
                 }`}
@@ -134,12 +138,7 @@ const CustomNavbar = () => {
                   viewBox="0 0 24 24"
                   xmlns="http://www.w3.org/2000/svg"
                 >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth="2"
-                    d="M19 9l-7 7-7-7"
-                  ></path>
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7"></path>
                 </svg>
               </button>
               {openDropdown === 'about' && (
@@ -160,9 +159,9 @@ const CustomNavbar = () => {
                       Fasilitas Masjid
                     </Link>
                     <Link
-                      to="/fasilitas-masjid"
+                      to="/kegiatan-masjid"
                       className={`block px-4 py-2 text-gray-700 hover:bg-gray-100 hover:text-gray-900 ${
-                        isActiveLink('/fasilitas-masjid') ? 'bg-gray-100 font-bold' : ''
+                        isActiveLink('/kegiatan-masjid') ? 'bg-gray-100 font-bold' : ''
                       }`}
                       role="menuitem"
                     >
@@ -186,11 +185,10 @@ const CustomNavbar = () => {
                     >
                       Sejarah
                     </Link>
-
                     <Link
                       to="/pengurus"
                       className={`block px-4 py-2 text-gray-700 hover:bg-gray-100 hover:text-gray-900 ${
-                        isActiveLink('/fasilitas-masjid') ? 'bg-gray-100 font-bold' : ''
+                        isActiveLink('/pengurus') ? 'bg-gray-100 font-bold' : ''
                       }`}
                       role="menuitem"
                     >
@@ -202,31 +200,34 @@ const CustomNavbar = () => {
             </div>
 
             {/* Contact Link */}
-            <Link
+            <button
               onClick={() => handleScrollToSection('contact')}
               className={`text-lg px-3 py-2 rounded ${
                 activeSection === 'contact' ? 'text-yellow-300 font-bold' : 'text-white hover:bg-blue-800'
               }`}
             >
               Kontak
-            </Link>
+            </button>
 
             {/* Gallery Link */}
-            <Link
+            <button
               onClick={() => handleScrollToSection('gallery')}
               className={`text-lg px-3 py-2 rounded ${
                 activeSection === 'gallery' ? 'text-yellow-300 font-bold' : 'text-white hover:bg-blue-800'
               }`}
             >
               Galeri
-            </Link>
+            </button>
 
             {/* Dropdown: Other */}
             <div className="relative inline-block text-left">
               <button
                 onClick={() => handleDropdownToggle('service')}
                 className={`text-lg px-3 py-2 rounded flex items-center ${
-                  openDropdown === 'service' || isActiveLink('/berita') || isActiveLink('/artikel')
+                  openDropdown === 'service' ||
+                  isActiveLink('/berita') ||
+                  isActiveLink('/artikel') ||
+                  activeSection === 'pengumuman'
                     ? 'text-yellow-300 font-bold'
                     : 'text-white hover:bg-blue-800'
                 }`}
@@ -241,12 +242,7 @@ const CustomNavbar = () => {
                   viewBox="0 0 24 24"
                   xmlns="http://www.w3.org/2000/svg"
                 >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth="2"
-                    d="M19 9l-7 7-7-7"
-                  ></path>
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7"></path>
                 </svg>
               </button>
               {openDropdown === 'service' && (
@@ -275,8 +271,7 @@ const CustomNavbar = () => {
                     >
                       Artikel
                     </Link>
-                    <Link
-                      to="#pengumuman"
+                    <button
                       onClick={() => handleScrollToSection('pengumuman')}
                       className={`block px-4 py-2 text-gray-700 hover:bg-gray-100 hover:text-gray-900 ${
                         activeSection === 'pengumuman' ? 'bg-gray-100 font-bold' : ''
@@ -284,8 +279,7 @@ const CustomNavbar = () => {
                       role="menuitem"
                     >
                       Pengumuman
-                    </Link>
-
+                    </button>
                   </div>
                 </div>
               )}

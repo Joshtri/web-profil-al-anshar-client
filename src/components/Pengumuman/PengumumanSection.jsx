@@ -44,10 +44,10 @@ function PengumumanSection() {
   }
 
   return (
-    <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 my-10" id="pengumuman">
+    <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 my-10">
       {/* Header */}
       <div className="text-center mb-10">
-        <h1 className="text-4xl font-bold text-gray-900">Pengumuman</h1>
+        <h1 className="text-4xl font-bold text-gray-900" id="pengumuman">Pengumuman</h1>
         <p className="text-lg text-gray-600 mt-3">
           Temukan informasi terbaru tentang kegiatan dan jadwal di Masjid Al-Anshar.
         </p>

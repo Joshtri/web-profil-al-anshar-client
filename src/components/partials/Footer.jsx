@@ -4,7 +4,7 @@ import { MdLocationCity } from "react-icons/md";
 
 const Footer = () => {
   return (
-    <footer className="bg-gradient-to-r from-purple-900 to-blue-900 text-white py-6 px-4">
+    <footer className="bg-gradient-to-r from-purple-900 to-blue-900 text-white py-6 px-4" id="contact">
       {/* Main Content */}
       <div className="container mx-auto flex flex-wrap justify-center gap-8">
         {/* Contact Information */}

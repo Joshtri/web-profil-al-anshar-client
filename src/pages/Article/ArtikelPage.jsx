@@ -1,8 +1,9 @@
-import React, { useEffect } from 'react'
-import Layout from './Layout'
-import PengurusSection from '../components/Pengurus/PengurusSection'
+// import React from 'react'
+import Layout from '../Layout'
+import ArtikelSection from '../../components/Artikel/ArtikelSection'
+import { useEffect } from 'react';
 
-function PengurusPage() {
+function ArtikelPage() {
   useEffect(() => {
     // Scroll to the top of the page when the component mounts
     window.scrollTo(0, 0);
@@ -10,9 +11,9 @@ function PengurusPage() {
 
   return (
     <Layout>
-        <PengurusSection/>
+        <ArtikelSection/>
     </Layout>
   )
 }
 
-export default PengurusPage
+export default ArtikelPage
