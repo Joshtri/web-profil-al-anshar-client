@@ -15,7 +15,12 @@ function PengumumanSection() {
       try {
         const response = await axios.get(`${import.meta.env.VITE_BASE_URL}/api/v1/pengumuman`);
         console.log('Response data:', response.data); // Debugging data
-        setAnnouncements(response.data.data);
+        if (response.data && response.data.data) {
+          setAnnouncements(response.data.data); // Pastikan data valid sebelum diatur
+        } else {
+          console.error('Invalid data format:', response.data);
+          setAnnouncements([]); // Atur ke array kosong jika data tidak valid
+        }
         setLoading(false);
       } catch (err) {
         console.error('Error fetching announcements:', err);
@@ -23,9 +28,10 @@ function PengumumanSection() {
         setLoading(false);
       }
     };
-
+  
     fetchAnnouncements();
   }, []);
+  
 
   if (loading) {
     return (
@@ -55,7 +61,7 @@ function PengumumanSection() {
 
       {/* Announcement Cards */}
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-        {announcements.map((announcement) => (
+        {Array.isArray(announcements) && announcements.map((announcement) => (
           <motion.div
             key={announcement.id}
             className="bg-white dark:bg-gray-800 shadow-lg rounded-lg overflow-hidden"

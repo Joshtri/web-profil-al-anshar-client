@@ -33,19 +33,24 @@ function GalerrySection() {
     const fetchGalleryData = async () => {
       try {
         const response = await axios.get(`${import.meta.env.VITE_BASE_URL}/api/v1/galeri`);
-        console.log('Response data:', response.data); // Tambahkan ini untuk debugging
-        const data = response.data.data; // Sesuaikan berdasarkan struktur respons
-        setGalleryData(data);
+        console.log('Response data:', response.data); // Debugging data
+        if (response.data && response.data.data) {
+          setGalleryData(response.data.data); // Pastikan data valid sebelum diatur
+        } else {
+          console.error('Invalid data format:', response.data);
+          setGalleryData([]); // Atur ke array kosong jika data tidak valid
+        }
         setLoading(false);
       } catch (err) {
         console.error('Error fetching gallery data:', err);
-        setError(err);
+        setError(err.message);
         setLoading(false);
       }
     };
-
+  
     fetchGalleryData();
   }, []);
+  
 
   // Intersection Observer to detect when GallerySection is in view
   useEffect(() => {
@@ -104,7 +109,7 @@ function GalerrySection() {
 
           {/* Cards */}
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-            {galleryData.slice(0, visibleItems).map((item, index) => (
+          {Array.isArray(galleryData) && galleryData.slice(0, visibleItems).map((item, index) => (             
               <motion.div
                 key={item.id || index} // Gunakan item.id jika tersedia, atau fallback ke index
                 className="max-w-sm bg-gray-50 border border-gray-200 rounded-lg shadow-md overflow-hidden"
