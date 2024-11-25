@@ -18,7 +18,7 @@ function SkeletonCard() {
 }
 
 function GalerrySection() {
-  const [galleryData, setGalleryData] = useState([]);
+  const [galleryData, setGalleryData] = useState([]); // Inisialisasi sebagai array kosong
   const [visibleItems, setVisibleItems] = useState(6);
   const [isVisible, setIsVisible] = useState(false);
   const [loading, setLoading] = useState(true);
@@ -33,13 +33,17 @@ function GalerrySection() {
     const fetchGalleryData = async () => {
       try {
         const response = await axios.get(`${import.meta.env.VITE_BASE_URL}/api/v1/galeri`);
-        console.log('Response data:', response.data); // Tambahkan ini untuk debugging
-        const data = response.data.data; // Sesuaikan berdasarkan struktur respons
-        setGalleryData(data);
+        console.log('Response data:', response.data); // Debugging log
+        if (response.data && Array.isArray(response.data.data)) {
+          setGalleryData(response.data.data); // Pastikan data valid sebelum diatur
+        } else {
+          console.error('Invalid data format:', response.data);
+          setGalleryData([]); // Fallback ke array kosong
+        }
         setLoading(false);
       } catch (err) {
         console.error('Error fetching gallery data:', err);
-        setError(err);
+        setError(err.message);
         setLoading(false);
       }
     };
@@ -79,7 +83,16 @@ function GalerrySection() {
   if (error) {
     return (
       <div className="flex justify-center items-center h-64">
-        <p className="text-red-500">Error fetching gallery data.</p>
+        <p className="text-red-500">Error fetching gallery data: {error}</p>
+      </div>
+    );
+  }
+
+  // Fallback jika data kosong
+  if (!Array.isArray(galleryData) || galleryData.length === 0) {
+    return (
+      <div className="flex justify-center items-center h-64">
+        <p className="text-gray-500">Tidak ada data galeri untuk ditampilkan.</p>
       </div>
     );
   }
