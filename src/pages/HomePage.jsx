@@ -23,7 +23,7 @@ function HomePage() {
   return (
     <Layout>
         <HomeSection/>
-        <PengumumanSection/>
+        {/* <PengumumanSection/> */}
         {/* <GaleriSection/> */}
         {/* <ContactSection/> */}
     </Layout>
