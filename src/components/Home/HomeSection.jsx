@@ -18,7 +18,6 @@ const backgroundImages = [
 
 function HomeSection() {
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
-  const [activeSection, setActiveSection] = useState(''); // Track the active section (home, gallery, contact)
 
   // Change background image every 5 seconds
   useEffect(() => {
@@ -44,20 +43,14 @@ function HomeSection() {
   };
 
   const handleScrollToSection = (id) => {
-    if (location.pathname !== '/') {
-      navigate('/', { state: { scrollTo: id } }); // Navigate to HomePage if not on it
-    } else {
-      const targetSection = document.getElementById(id); // Scroll directly if already on HomePage
-      if (targetSection) {
-        targetSection.scrollIntoView({
-          behavior: 'smooth',
-          block: 'start',
-        });
-        setActiveSection(id); // Set the active section manually when clicked
-      }
+    const targetSection = document.getElementById(id);
+    if (targetSection) {
+      targetSection.scrollIntoView({
+        behavior: "smooth",
+        block: "start",
+      });
     }
   };
-
 
   return (
     <section
@@ -92,7 +85,7 @@ function HomeSection() {
             animate="visible"
           >
             Selamat datang di website resmi Masjid Al-Anshar. Kami hadir untuk
-            memberikan informasi tentang kegiatan ibadah, program sosial, jadwal sholat, 
+            memberikan informasi tentang kegiatan ibadah, program sosial, jadwal sholat,
             serta kegiatan keagamaan lainnya. Masjid Al-Anshar berkomitmen untuk menjadi pusat
             keislaman yang bermanfaat bagi masyarakat, menciptakan suasana religius, dan
             mempererat ukhuwah Islamiyah.
@@ -106,25 +99,24 @@ function HomeSection() {
             initial="hidden"
             animate="visible"
           >
-            <Link
-              to="/jadwal-kegiatan"
+            <button
+              onClick={() => handleScrollToSection("gallery")}
               className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800"
             >
               Lihat Galeri
-            </Link>
+            </button>
           </motion.div>
           <motion.div
             variants={buttonAnimation}
             initial="hidden"
             animate="visible"
           >
-            <Link
-              
+            <button
+              onClick={() => handleScrollToSection("pengumuman")}
               className="text-white bg-green-700 hover:bg-green-800 focus:ring-4 focus:ring-green-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-green-600 dark:hover:bg-green-700 focus:outline-none dark:focus:ring-green-800"
-              
             >
               Pengumuman
-            </Link>
+            </button>
           </motion.div>
         </div>
       </div>
