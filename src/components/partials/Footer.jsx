@@ -2,9 +2,14 @@ import { FaInstagram } from "react-icons/fa";
 import { CiFacebook } from "react-icons/ci";
 import { MdLocationCity } from "react-icons/md";
 
+// Import logo images
+import logo1 from "../../assets/logo1.webp";
+import logo2 from "../../assets/logo1.webp";
+
 const Footer = () => {
   return (
     <footer className="bg-gradient-to-r from-purple-900 to-blue-900 text-white py-6 px-4" id="contact">
+
       {/* Main Content */}
       <div className="container mx-auto flex flex-wrap justify-center gap-8">
         {/* Contact Information */}
@@ -64,13 +69,20 @@ const Footer = () => {
           ></iframe>
         </div>
       </div>
+            {/* Logo Section */}
+      <div className="flex justify-center mt-4 items-center space-x-8 mb-3">
+        <img src={logo1} alt="Logo 1" className="h-16 w-auto object-contain" />
+        {/* <img src={logo2} alt="Logo 2" className="h-16 w-auto object-contain" /> */}
+      </div>
+
 
       {/* Footer Bottom */}
-      <div className="mt-6 text-center border-t border-gray-700 pt-4">
+      <div className="mt-6 text-center border-t border-gray-700 pt-2">
         <p className="text-sm">
           &copy; {new Date().getFullYear()} Masjid Al-Anshar. All rights reserved.
         </p>
       </div>
+      
     </footer>
   );
 };

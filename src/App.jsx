@@ -14,6 +14,8 @@ import ArtikelPage from './pages/Article/ArtikelPage'
 import PengurusPage from './pages/PengurusPage'
 import KegiatanPage from './pages/KegiatanPage'
 import ReadArticlePage from './pages/Article/ReadArticlePage'
+import KiblatPage from './pages/KiblatPage'
+import KiblatMapPage from './pages/KiblatMapPage'
 // import ArtikelSection from './components/Artikel/ArtikelSection'
 
 function App() {
@@ -34,6 +36,9 @@ function App() {
           <Route path='/pengurus' element={<PengurusPage/>}/>
           <Route path='/kegiatan' element={<KegiatanPage/>}/>
           <Route path="/artikel/:id" element={<ReadArticlePage />} />
+
+          <Route path='/arah-kiblat' element={<KiblatPage/>}/>
+          <Route path='/arah-kiblat-map' element={<KiblatMapPage/>}/>
 
         </Routes>
       </BrowserRouter>

@@ -254,6 +254,15 @@ const CustomNavbar = () => {
                     aria-labelledby="options-menu"
                   >
                     <Link
+                      to="/arah-kiblat"
+                      className={`block px-4 py-2 text-gray-700 hover:bg-gray-100 hover:text-gray-900 ${
+                        isActiveLink('/berita') ? 'bg-gray-100 font-bold' : ''
+                      }`}
+                      role="menuitem"
+                    >
+                      Arah Kiblat
+                    </Link>
+                    <Link
                       to="/berita"
                       className={`block px-4 py-2 text-gray-700 hover:bg-gray-100 hover:text-gray-900 ${
                         isActiveLink('/berita') ? 'bg-gray-100 font-bold' : ''

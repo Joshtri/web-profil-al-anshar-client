@@ -15,6 +15,7 @@
     "flowbite": "^2.5.2",
     "flowbite-react": "^0.10.2",
     "framer-motion": "^11.11.17",
+    "leaflet": "^1.9.4",
     "moment": "^2.30.1",
     "prop-types": "^15.8.1",
     "react": "^18.3.1",
