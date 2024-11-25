@@ -5,6 +5,8 @@ import GaleriSection from '../components/Gallery/GalerrySection'
 // import ContactSection from '../components/Contact/ContactSection'
 import { useLocation } from 'react-router-dom'
 import PengumumanSection from '../components/Pengumuman/PengumumanSection'
+import ArtikelPage from './Article/ArtikelPage'
+import ArtikelHighlight from '../components/Artikel/ArtikelHighlight'
 
 function HomePage() {
   const location = useLocation();
@@ -25,7 +27,9 @@ function HomePage() {
         <HomeSection/>
         <PengumumanSection/>
         <GaleriSection/>
+        {/* <ArtikelPage/> */}
         {/* <ContactSection/> */}
+        <ArtikelHighlight/>
     </Layout>
   )
 }
