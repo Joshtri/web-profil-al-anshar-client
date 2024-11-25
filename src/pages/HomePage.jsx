@@ -24,7 +24,7 @@ function HomePage() {
     <Layout>
         <HomeSection/>
         {/* <PengumumanSection/> */}
-        {/* <GaleriSection/> */}
+        <GaleriSection/>
         {/* <ContactSection/> */}
     </Layout>
   )
