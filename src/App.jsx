@@ -30,6 +30,7 @@ function App() {
           <Route path='/berita' element={<BeritaPage/>}/>
           <Route path='/fasilitas-masjid' element={<FasilitasPage/>}/>
           <Route path='/artikel' element={<ArtikelPage/>}/>
+          <Route path='/kegiatan-masjid' element={<KegiatanPage/>}/>
           <Route path='/pengurus' element={<PengurusPage/>}/>
           <Route path='/kegiatan' element={<KegiatanPage/>}/>
           <Route path="/artikel/:id" element={<ReadArticlePage />} />
