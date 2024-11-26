@@ -38,7 +38,7 @@ function App() {
           <Route path="/artikel/:id" element={<ReadArticlePage />} />
 
           <Route path='/arah-kiblat' element={<KiblatPage/>}/>
-          <Route path='/arah-kiblat-map' element={<KiblatMapPage/>}/>
+          {/* <Route path='/arah-kiblat-map' element={<KiblatMapPage/>}/> */}
 
         </Routes>
       </BrowserRouter>
