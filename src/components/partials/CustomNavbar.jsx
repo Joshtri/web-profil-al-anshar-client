@@ -93,7 +93,7 @@ const CustomNavbar = () => {
           {/* Logo with Brand Name */}
           <Navbar.Brand href="/">
             <span className="text-2xl font-bold p-2 text-white">
-              Website Masjid Al-Anshar
+              Masjid Al-Anshar
             </span>
           </Navbar.Brand>
 
@@ -101,13 +101,15 @@ const CustomNavbar = () => {
           <Navbar.Toggle onClick={toggleNavbar} />
 
           {/* Navbar Links */}
-          <Navbar.Collapse className={`md:flex ${isOpen ? 'block' : 'hidden'}`}>
+          <Navbar.Collapse className={`md:flex ${isOpen ? "block" : "hidden"}`}>
             {/* Home Link */}
             <Link
               to="/"
-              onClick={() => handleScrollToSection('home')}
+              onClick={() => handleScrollToSection("home")}
               className={`text-lg px-3 py-2 rounded ${
-                activeSection === 'home' ? 'text-yellow-300 font-bold' : 'text-white hover:bg-blue-800'
+                activeSection === "home"
+                  ? "text-yellow-300 font-bold"
+                  : "text-white hover:bg-blue-800"
               }`}
             >
               Beranda
@@ -116,32 +118,37 @@ const CustomNavbar = () => {
             {/* Dropdown: Tentang */}
             <div className="relative inline-block text-left">
               <button
-                onClick={() => handleDropdownToggle('about')}
+                onClick={() => handleDropdownToggle("about")}
                 className={`text-lg px-3 py-2 rounded flex items-center ${
-                  openDropdown === 'about' ||
-                  isActiveLink('/fasilitas-masjid') ||
-                  isActiveLink('/profil-masjid') ||
-                  isActiveLink('/kegiatan-masjid') ||
-                  isActiveLink('/sejarah') ||
-                  isActiveLink('/pengurus')
-                    ? 'text-yellow-300 font-bold'
-                    : 'text-white hover:bg-blue-800'
+                  openDropdown === "about" ||
+                  isActiveLink("/fasilitas-masjid") ||
+                  isActiveLink("/profil-masjid") ||
+                  isActiveLink("/kegiatan-masjid") ||
+                  isActiveLink("/sejarah") ||
+                  isActiveLink("/pengurus")
+                    ? "text-yellow-300 font-bold"
+                    : "text-white hover:bg-blue-800"
                 }`}
               >
                 Tentang
                 <svg
                   className={`ml-1 w-5 h-5 transform transition-transform ${
-                    openDropdown === 'about' ? 'rotate-180' : 'rotate-0'
+                    openDropdown === "about" ? "rotate-180" : "rotate-0"
                   }`}
                   fill="none"
                   stroke="currentColor"
                   viewBox="0 0 24 24"
                   xmlns="http://www.w3.org/2000/svg"
                 >
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7"></path>
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth="2"
+                    d="M19 9l-7 7-7-7"
+                  ></path>
                 </svg>
               </button>
-              {openDropdown === 'about' && (
+              {openDropdown === "about" && (
                 <div className="absolute mt-2 w-56 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5">
                   <div
                     className="py-1"
@@ -152,7 +159,9 @@ const CustomNavbar = () => {
                     <Link
                       to="/fasilitas-masjid"
                       className={`block px-4 py-2 text-gray-700 hover:bg-gray-100 hover:text-gray-900 ${
-                        isActiveLink('/fasilitas-masjid') ? 'bg-gray-100 font-bold' : ''
+                        isActiveLink("/fasilitas-masjid")
+                          ? "bg-gray-100 font-bold"
+                          : ""
                       }`}
                       role="menuitem"
                     >
@@ -161,7 +170,9 @@ const CustomNavbar = () => {
                     <Link
                       to="/kegiatan-masjid"
                       className={`block px-4 py-2 text-gray-700 hover:bg-gray-100 hover:text-gray-900 ${
-                        isActiveLink('/kegiatan-masjid') ? 'bg-gray-100 font-bold' : ''
+                        isActiveLink("/kegiatan-masjid")
+                          ? "bg-gray-100 font-bold"
+                          : ""
                       }`}
                       role="menuitem"
                     >
@@ -170,7 +181,9 @@ const CustomNavbar = () => {
                     <Link
                       to="/profil-masjid"
                       className={`block px-4 py-2 text-gray-700 hover:bg-gray-100 hover:text-gray-900 ${
-                        isActiveLink('/profil-masjid') ? 'bg-gray-100 font-bold' : ''
+                        isActiveLink("/profil-masjid")
+                          ? "bg-gray-100 font-bold"
+                          : ""
                       }`}
                       role="menuitem"
                     >
@@ -179,7 +192,7 @@ const CustomNavbar = () => {
                     <Link
                       to="/sejarah"
                       className={`block px-4 py-2 text-gray-700 hover:bg-gray-100 hover:text-gray-900 ${
-                        isActiveLink('/sejarah') ? 'bg-gray-100 font-bold' : ''
+                        isActiveLink("/sejarah") ? "bg-gray-100 font-bold" : ""
                       }`}
                       role="menuitem"
                     >
@@ -188,7 +201,7 @@ const CustomNavbar = () => {
                     <Link
                       to="/pengurus"
                       className={`block px-4 py-2 text-gray-700 hover:bg-gray-100 hover:text-gray-900 ${
-                        isActiveLink('/pengurus') ? 'bg-gray-100 font-bold' : ''
+                        isActiveLink("/pengurus") ? "bg-gray-100 font-bold" : ""
                       }`}
                       role="menuitem"
                     >
@@ -200,52 +213,66 @@ const CustomNavbar = () => {
             </div>
 
             {/* Contact Link */}
-            <button
-              onClick={() => handleScrollToSection('contact')}
-              className={`text-lg px-3 py-2 rounded ${
-                activeSection === 'contact' ? 'text-yellow-300 font-bold' : 'text-white hover:bg-blue-800'
-              }`}
-            >
-              Kontak
-            </button>
+            <div>
+              
+              <button
+                onClick={() => handleScrollToSection("contact")}
+                className={`text-lg px-3 py-2 rounded ${
+                  activeSection === "contact"
+                    ? "text-yellow-300 font-bold"
+                    : "text-white hover:bg-blue-800"
+                }`}
+              >
+                Kontak
+              </button>
+            </div>
 
-            {/* Gallery Link */}
-            <button
-              onClick={() => handleScrollToSection('gallery')}
-              className={`text-lg px-3 py-2 rounded ${
-                activeSection === 'gallery' ? 'text-yellow-300 font-bold' : 'text-white hover:bg-blue-800'
-              }`}
-            >
-              Galeri
-            </button>
+            <div>
+              {/* Gallery Link */}
+              <button
+                onClick={() => handleScrollToSection("gallery")}
+                className={`text-lg px-3 py-2 rounded ${
+                  activeSection === "gallery"
+                    ? "text-yellow-300 font-bold"
+                    : "text-white hover:bg-blue-800"
+                  }`}
+                  >
+                Galeri
+              </button>
+            </div>
 
             {/* Dropdown: Other */}
             <div className="relative inline-block text-left">
               <button
-                onClick={() => handleDropdownToggle('service')}
+                onClick={() => handleDropdownToggle("service")}
                 className={`text-lg px-3 py-2 rounded flex items-center ${
-                  openDropdown === 'service' ||
-                  isActiveLink('/berita') ||
-                  isActiveLink('/artikel') ||
-                  activeSection === 'pengumuman'
-                    ? 'text-yellow-300 font-bold'
-                    : 'text-white hover:bg-blue-800'
+                  openDropdown === "service" ||
+                  isActiveLink("/berita") ||
+                  isActiveLink("/artikel") ||
+                  activeSection === "pengumuman"
+                    ? "text-yellow-300 font-bold"
+                    : "text-white hover:bg-blue-800"
                 }`}
               >
                 Other
                 <svg
                   className={`ml-1 w-5 h-5 transform transition-transform ${
-                    openDropdown === 'service' ? 'rotate-180' : 'rotate-0'
+                    openDropdown === "service" ? "rotate-180" : "rotate-0"
                   }`}
                   fill="none"
                   stroke="currentColor"
                   viewBox="0 0 24 24"
                   xmlns="http://www.w3.org/2000/svg"
                 >
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7"></path>
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth="2"
+                    d="M19 9l-7 7-7-7"
+                  ></path>
                 </svg>
               </button>
-              {openDropdown === 'service' && (
+              {openDropdown === "service" && (
                 <div className="absolute mt-2 w-56 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5">
                   <div
                     className="py-1"
@@ -256,7 +283,7 @@ const CustomNavbar = () => {
                     <Link
                       to="/arah-kiblat"
                       className={`block px-4 py-2 text-gray-700 hover:bg-gray-100 hover:text-gray-900 ${
-                        isActiveLink('/berita') ? 'bg-gray-100 font-bold' : ''
+                        isActiveLink("/berita") ? "bg-gray-100 font-bold" : ""
                       }`}
                       role="menuitem"
                     >
@@ -265,7 +292,7 @@ const CustomNavbar = () => {
                     <Link
                       to="/berita"
                       className={`block px-4 py-2 text-gray-700 hover:bg-gray-100 hover:text-gray-900 ${
-                        isActiveLink('/berita') ? 'bg-gray-100 font-bold' : ''
+                        isActiveLink("/berita") ? "bg-gray-100 font-bold" : ""
                       }`}
                       role="menuitem"
                     >
@@ -274,16 +301,18 @@ const CustomNavbar = () => {
                     <Link
                       to="/artikel"
                       className={`block px-4 py-2 text-gray-700 hover:bg-gray-100 hover:text-gray-900 ${
-                        isActiveLink('/artikel') ? 'bg-gray-100 font-bold' : ''
+                        isActiveLink("/artikel") ? "bg-gray-100 font-bold" : ""
                       }`}
                       role="menuitem"
                     >
                       Artikel
                     </Link>
                     <button
-                      onClick={() => handleScrollToSection('pengumuman')}
+                      onClick={() => handleScrollToSection("pengumuman")}
                       className={`block px-4 py-2 text-gray-700 hover:bg-gray-100 hover:text-gray-900 ${
-                        activeSection === 'pengumuman' ? 'bg-gray-100 font-bold' : ''
+                        activeSection === "pengumuman"
+                          ? "bg-gray-100 font-bold"
+                          : ""
                       }`}
                       role="menuitem"
                     >

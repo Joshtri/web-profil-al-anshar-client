@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { FaToilet, FaParking, FaFan, FaPray, FaHome } from 'react-icons/fa';
-import { GiWashingMachine, GiClothes } from 'react-icons/gi';
+import { GiWashingMachine, GiClothes, GiSoundWaves } from 'react-icons/gi';
 import Skeleton from 'react-loading-skeleton';
 import 'react-loading-skeleton/dist/skeleton.css';
 import toiletImg from '../../assets/fasilitasImg/toilet.webp';
@@ -17,11 +17,13 @@ const FASILITAS = [
   {
     kategori: 'Fasilitas Utama',
     items: [
-      { name: 'Tempat Wudhu', image: wudhuImg, icon: <GiWashingMachine />, desc: 'Fasilitas tempat wudhu yang bersih dan nyaman untuk jamaah.' },
-      { name: 'Toilet', image: toiletImg, icon: <FaToilet />, desc: 'Toilet yang terawat untuk kebutuhan jamaah.' },
+      { name: 'Tempat Wudhu (Pria & Wanita)', image: wudhuImg, icon: <GiWashingMachine />, desc: 'Fasilitas tempat wudhu yang bersih dan nyaman untuk jamaah.' },
+      { name: 'Toilet (Pria & Wanita)', image: toiletImg, icon: <FaToilet />, desc: 'Toilet yang terawat untuk kebutuhan jamaah.' },
       { name: 'Rumah Marbot', image: 'https://via.placeholder.com/400x300?text=Rumah+Marbot', icon: <FaHome />, desc: 'Tempat tinggal bagi pengurus masjid.' },
       { name: 'Gudang Masjid', image: 'https://via.placeholder.com/400x300?text=Gudang+Masjid', icon: <FaHome />, desc: 'Gudang penyimpanan perlengkapan masjid.' },
       { name: 'Pemandian Jenazah', image: mandiJenazahImg, icon: <GiClothes />, desc: 'Fasilitas pemandian jenazah yang sesuai syariat.' },
+      { name: 'Tempat Pemotongan Hewan Kurban', image: 'https://via.placeholder.com/400x300?text=Gudang+Masjid', icon: <GiClothes />, desc: 'Fasilitas pemandian jenazah yang sesuai syariat.' },
+      { name: `Tempat Al'Quran`, image: 'https://via.placeholder.com/400x300?text=Gudang+Masjid', icon: <GiClothes />, desc: 'Fasilitas pemandian jenazah yang sesuai syariat.' },
     ],
   },
   {
@@ -42,6 +44,7 @@ const FASILITAS = [
     kategori: 'Fasilitas Pendukung',
     items: [
       { name: 'Area Parkir', image: parkirImg, icon: <FaParking />, desc: 'Area parkir luas dan aman untuk kendaraan jamaah.' },
+      { name: 'Sound System', image: parkirImg, icon: <GiSoundWaves />, desc: 'Area parkir luas dan aman untuk kendaraan jamaah.' },
     ],
   },
 ];
